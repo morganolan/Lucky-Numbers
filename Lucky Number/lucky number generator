@@ -1,0 +1,83 @@
+#include <stdio.h> //for printf() functions
+#include <stdlib.h> //for srand()
+#include <windows.h> //for srand(GetTickCount()) and booleans,
+
+void Draw_Menu();   //initializing of functions
+void Random_Number();
+void Author_Info();
+
+
+void Draw_Menu() // defining function
+{
+printf ("\n");
+printf ("\t\t##############_MENU_###############\n");
+printf ("\t\t#                                 #\n");
+printf ("\t\t# 1. What are my lucky numbers?   #\n");
+printf ("\t\t# 2. About the author             #\n");
+printf ("\t\t# 3. Exit                         #\n");
+printf ("\t\t#                                 #\n");
+printf ("\t\t#######_Lucky Numbers v1.0_########\n");
+}
+
+void Random_Number()
+{
+int number1 = 0;
+int number2 = 0;
+int number3 = 0;
+int number4 = 0;
+int number5 = 0;
+int number6 = 0;
+srand(GetTickCount());  //for truly random numbers
+number1 = rand()%45;
+number2 = rand()%45;
+number3 = rand()%45;
+number4 = rand()%45;
+number5 = rand()%45;
+number6 = rand()%45;
+printf ("\nYour lucky numbers are: %d, %d, %d, %d, %d, %d\n", number1, number2, number3, number4, number5, number6);
+printf ("--------------------------------------------------------------------------------\n");
+}
+
+void Author_Info()
+{
+printf ("\t\t*************_INFO_*************\n");
+printf ("\t\t* Name: Morgan Nolan        *\n");
+printf ("\t\t* Email: morganolan@gmail.com  *\n");
+printf ("\t\t********************************\n");
+printf ("--------------------------------------------------------------------------------\n");
+}
+
+void main()
+{
+BOOL Playing=TRUE; // if this is TRUE do all the stuff that is below
+int choice = 0;
+
+
+while(Playing)
+{
+Draw_Menu();
+
+printf ("\nEnter your choice:\t");
+scanf ("%d", &choice);
+
+switch(choice)
+{
+case 1:
+Random_Number();
+break;
+
+case 2:
+Author_Info();
+break;
+
+case 3:
+Playing = FALSE;  //setting to False so the program can exit
+printf ("Exiting...\n");
+break;
+
+default:
+printf ("NO SUCH CHOICE! PLEASE TRY AGAIN!\n");
+break;
+}
+}
+}
